@@ -1059,7 +1059,78 @@ console.log(`========================= 18/20 ============================`);
 
 //Додай класу Admin публічну статичну властивість AccessLevel (рівень доступу), значення якої — це об'єкт {BASIC: "basic", SUPERUSER: "superuser"}
 
+// class User {
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// // Change code below this line
+
+// class Admin extends User {
+//   static AccessLevel = {
+//     BASIC: 'basic',
+//     SUPERUSER: 'superuser',
+//   };
+// }
+
+// // Оголошений клас Admin
+
+// // Клас Admin наслідує від класу User
+
+// // Клас Admin містить публічну статичну властивість AccessLevel
+
+// console.log(Admin.AccessLevel.BASIC); // повертає рядок "basic"
+
+// console.log(Admin.AccessLevel.SUPERUSER); // повертає рядок "superuser"
+
+console.log(`------------ спеціальна функція super(аргументи) -----------`);
+
+// Насамперед в конструкторі дочірнього класу необхідно викликати спеціальну функцію super(аргументи) - це псевдонім конструктора батьківського класу. В іншому випадку, при спробі звернутися до this в конструкторі дочірнього класу, виникне помилка. Під час виклику конструктора батьківського класу передаємо необхідні йому аргументи для ініціалізації властивостей.
+
+//* class User {
+//*   email;
+
+//*   constructor(email) {
+//*     this.email = email;
+//*   }
+
+//*   get email() {
+//*     return this.email;
+//*   }
+
+//*   set email(newEmail) {
+//*     this.email = newEmail;
+//*   }
+//* }
+//* class ContentEditor extends User {
+//*   constructor({ email, posts }) {
+//*     // Виклик конструктора батьківського класу User
+//*     super(email);
+//*     this.posts = posts;
+//*   }
+//* }
+
+//* const editor = new ContentEditor({ email: 'mango@mail.com', posts: [] });
+//* console.log(editor); // { email: 'mango@mail.com', posts: [] }
+//* console.log(editor.email); // 'mango@mail.com'
+
+console.log(`========================= 19/20 ============================`);
+
+// Додай класу Admin метод constructor, який приймає один параметр - об'єкт налаштувань з двома властивостями email і accessLevel. Додай класу Admin публічну властивість accessLevel, значення якої буде передаватися під час виклику конструктора.
+
+// Щоб показати, як буде використовуватися клас Admin, ми додали ініціалізацію екземпляра під оголошенням класу.
+
 class User {
+  email;
+
   constructor(email) {
     this.email = email;
   }
@@ -1072,14 +1143,25 @@ class User {
     this.email = newEmail;
   }
 }
-// Change code below this line
 
 class Admin extends User {
+  // Change code below this line
+
   static AccessLevel = {
     BASIC: 'basic',
     SUPERUSER: 'superuser',
   };
+
+  // Change code above this line
 }
+
+const mango = new Admin({
+  email: 'mango@mail.com',
+  accessLevel: Admin.AccessLevel.SUPERUSER,
+});
+
+console.log(mango.email); // "mango@mail.com"
+console.log(mango.accessLevel); // "superuser"
 
 // Оголошений клас Admin
 
@@ -1087,10 +1169,12 @@ class Admin extends User {
 
 // Клас Admin містить публічну статичну властивість AccessLevel
 
-console.log(Admin.AccessLevel.BASIC); // повертає рядок "basic"
+// Клас Admin містить метод constructor з параметром у вигляді об'єкта {email, accessLevel}
 
-console.log(Admin.AccessLevel.SUPERUSER); // повертає рядок "superuser"
+// В класі Admin в конструкторі для властивості email використовується звернення до конструктора батьківського класу
 
-console.log(`----------------- Ключове слово ( extends ) ----------------`);
+// Звернення до Admin.AccessLevel.BASIC повертає рядок "basic"
+
+// Звернення до Admin.AccessLevel.SUPERUSER повертає рядок "superuser"
 
 console.log(`========================= 19/20 ============================`);
