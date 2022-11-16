@@ -1,440 +1,584 @@
-// 1. Використовуючи функцію if...else,
-// напишіть код, який запитуватиме:
-// "Яка офіційна назва JavaScript?"
-// Якщо користувач вводить "ECMAScript",
-// показати через alert: "Вірно!"
-// інакше відобразити:"Не знаєте? ECMAScript!"
+// const book = {
+//   title: "The Last Kingdom",
+//   author: "Bernard Cornwell",
+//   genres: ["historical prose", "adventure"],
+//   rating: 8.38,
+// };
 
-// const question = prompt('Яка офіційна назва JavaScript?');
-// console.log(question, typeof question);
-
-// if (condition) {
-
-// } else {
-
+// for (const key in book) {
+//   // Ключ
+//   console.log(key);
+//   // Значення властивості з таким ключем
+//   console.log(book[key]);
 // }
 
-//2. Напишіть програму, яка отримає від користувача
-//число (кількість хвилин) і виведе у консоль
-//Рядок у форматі годин і хвилин
-// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
-// 70 === 01:10
-
-// Отримайте кількість хвилин -
-
-// Візіміть ціле від ділення на 60, це кількість годин
-
-// Обробіть години так щоб відповідали формату
-
-// Візіміть залишок від ділення на 60, це кількість хвилин
-
-// Обробіть хвилини так щоб відповідали формату
-
-// Вивести результат
-
-// const min = +prompt(`введіть кількість хвилин`);
-
-// let hours = Math.floor(Number(min) / 60);
-// let modifyHour = String(hours).padStart(2, 0);
-
-// let minute = Number(min) % 60;
-// let modifyMinute = String(minute).padStart(2, 0);
-
-// console.log(`${modifyHour}:${modifyMinute}`);
-
-//5. Напишіть код, який запитуватиме
-//   Логін за допомогою prompt і логувати результат
-//   В консоль браузера
-
-// Якщо відвідувач вводить "admin",
-// то наступний prompt запитує пароль,
-// інакше (нічого не ввели або натиснута клавіша Esc) вивести рядок "Я вас не знаю".
-
-// Якщо на запит паролю нічого не ввели або натиснута клавіша Esc
-// Вивести рядок "Скасовано"
-
-// Пароль перевіряти так:
-// Якщо введено пароль "password",
-// то вивести рядок "Здрастуйте!"
-// інакше виводити рядок "Невірний пароль!"
-
-// const inputLogin = prompt(`введіть логін`);
-
-// if (inputLogin === `admin`) {
-//   const inputPassword = prompt(`введіть пароль`);
-// } else {
-//   alert('Я вас не знаю');
-// }
-
-//7. Напишіть цикл, який пропонує ввести
-//   число більше 100 через prompt.
-//   Якщо відвідувач ввів інше число - попросити
-//   Ввести ще раз і так далі.
-//   Цикл повинен запитувати число, поки відвідувач не
-//   введе число більше 100, або натисне кнопку
-//   Скасування в prompt
-
-// let number = prompt('vvedi chislo bolshe 100');
-// while (number < 100 && number !== null) {
-//   do
-//     if (number < 100 && number !== null) {
-//       number = prompt('try again');
-//     }
-//   while (number > 100);
-// }
-
-// const str = 'The quick brown fox jumps over the lazy dog.';
-
-// const words = str.split(' ');
-// console.log(words[3]);
-console.log(`---------------------------------------------------------------`);
-
-// function splitMessage(message, delimiter) {
-//   let words;
-//   words = message.split(delimiter);
-
-//   return words;
-// }
-
-console.log(`---------------------------------------------------------------`);
-
-// splitMessage('Mango hurries to the train', ' ');
-
-// const name = 'Mango';
-// console.log(name.split('')); // ["M", "a", "n", "g", "o"]
-
-// const message = 'JavaScript essentials';
-// console.log(message.split(' ')); // ["JavaScript", "essentials"]
-
-console.log(`---------------------------------------------------------------`);
-
-// Сервісу гравірування прикрас потрібна функція, яка б автоматично рахувала ціну гравірування, залежно від кількості слів і ціни за слово.
-
-// Оголошена функція calculateEngravingPrice(message, pricePerWord). Ця функція приймає рядок, що складається зі слів, розділених лише пробілами (параметр message) та ціну гравірування одного слова (параметр pricePerWord).
-
-// Напиши тіло функції, щоб вона повертала загальну вартість гравірування усіх слів в рядку.
-
-// let message = prompt(`введіть свій текст`);
-
-// function calculateEngravingPrice(message, pricePerWord) {
-//   let total = 0;
-//   let words = message.split(' ');
-//   let calcWords = words.length;
-
-//   total = calcWords * pricePerWord;
-
-//   return total;
-// }
-
-// console.log(`Це коштує:`, calculateEngravingPrice(`${message}`, 20), `$`);
-
-// let message = 'JavaScript is in my blood';
-// let pricePerWord = 10;
-// let total = 0;
-
-// let words = message.split(' ');
-// console.log(words);
-
-// let calcWords = words.length;
-// console.log(calcWords);
-
-// total = Number(calcWords * pricePerWord);
-// console.log(total);
-
-console.log(`---------------------------------------------------------------`);
-
-// Напиши функцію slugify(title), яка приймає заголовок статті, параметр title, і повертає slug, створений з цього рядка.
-//
-// Значенням параметра title будуть рядки, слова яких розділені лише пробілами
-// Усі символи slug повинні бути у нижньому регістрі
-// Всі слова slug повинні бути розділені тире
-
-let title = 'Arrays for begginers';
-console.log(title);
-
-title = title.split(' ');
-
-console.log(title);
-
-let words = title.join('-').toLowerCase();
-console.log(words);
-
-function slugify(title) {
-  title = title.split(' ');
-  let words = title.join('-').toLowerCase();
-
-  return words;
-}
-
-console.log(slugify('Arrays for begginers')); //повертає "arrays-for-begginers"
-
-console.log(`---------------------------------------------------------------`);
-
-const fruits = ['apple', 'plum', 'pear', 'orange', 'banana'];
-
-const firstTwoEls = fruits.slice(0, 2);
-console.log(firstTwoEls);
-
-const nonExtremeEls = fruits.slice(1, 4);
-console.log(nonExtremeEls);
-
-const lastThreeEls = fruits.slice(2, 5);
-console.log(lastThreeEls);
-
-console.log(`---------------------------------------------------------------`);
-
-// Напиши функцію makeArray(firstArray, secondArray, maxLength) для створення нового масиву з усіма елементами двох вихідних firstArray і secondArray. Параметр maxLength містить максимально допустиму довжину нового масиву.
-//
-// Якщо кількість елементів нового масиву більша за maxLength, функція повинна повернути копію масиву довжиною maxLength елементів. В іншому випадку функція повинна повернути новий масив повністю.
-//
-
-function makeArray(firstArray, secondArray, maxLength) {
-  const allArray = firstArray.concat(secondArray);
-  let allArrayLength = allArray.length;
-
-  if (allArrayLength > maxLength) {
-    let maxLengthArray = allArray.slice(0, maxLength);
-
-    return maxLengthArray;
-  }
-
-  return allArray;
-}
-
-console.log(makeArray(['Mango', 'Poly'], ['Ajax', 'Chelsea'], 3)); //повертає ["Mango", "Poly", "Ajax"]
-
-console.log(`-----------------------FOR----------------------------`);
-
-// for (let i = 0; i <= 20; i += 5) {
-//   console.log(i);
-// }
-
-// const start = 3;
-// const end = 7;
-
-// for (let i = start; i <= end; i += 2) {
-//   console.log(i);
-// }
-
-console.log(`---------------------------------------------------------------`);
-
-// Напиши функцію calculateTotal(number), яка приймає ціле число (параметр number) і повертає суму всіх цілих чисел від одиниці і до цього числа. Наприклад, якщо number дорівнює 3, то сума - це 1 + 2 + 3, тобто 6.
-//
-
-// function calculateTotal(number) {
-//   let total = 0;
-
-//   for (let i = 1; i <= number; i += 1) {
-//     total += i;
-//   }
-//   return total;
-// }
-
-// console.log(calculateTotal(3));
-
-// console.log(`---------------------------forToArray------------------------------------`);
-
-// const planets = ['Earth', 'Mars', 'Venus'];
-
-// for (let i = 0; i < planets.length; i += 1) {
-//   console.log(planets[i]);
-// }
-
-console.log(`------------------ОБЧИСЛЕННЯ СУМИ ПОКУПКИ---------------------`);
-
-// Напиши функцію calculateTotalPrice(order), яка приймає один параметр order - масив чисел, і обчислює загальну суму його елементів. Загальна сума елементів повинна зберігатися у змінній total, яка повертається як результат роботи функції.
-
-function calculateTotalPrice(order) {
-  let total = 0;
-
-  //   for (let i = 0; i < order.length; i += 1) {
-  //     console.log(order[i]);
-
-  //     total = total + order[i];
-  //   }
-
-  //   return total;
-  // }
-
-  for (const orders of order) {
-    console.log(orders);
-
-    total += orders;
-  }
-  return total;
-}
-
-console.log(calculateTotalPrice([12, 85, 37, 4])); //повертає 138
-
-console.log(`------------------ПОШУК НАЙДОВШОГО СЛОВА---------------------`);
-
-// Напиши функцію findLongestWord(string), яка приймає довільний рядок, що складається тільки зі слів, розділених пробілом (параметр string), і повертає найдовше слово в цьому рядку.
-
-// function findLongestWord(string) {
-//   return string.split(` `).reduce((a, b) => (b.length > a.length ? b : a));
-// }
-
-function findLongestWord(string) {
-  string = string.split(` `);
-
-  let maxLengthWord = string[0];
-
-  for (let word of string) {
-    if (word.length > maxLengthWord.length) {
-      maxLengthWord = word;
-    }
-  }
-  return maxLengthWord;
-}
-
-console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); //повертає jumped
-
-console.log(`---------------------------------------`);
-
-// Доповни код функції createArrayOfNumbers(min, max) таким чином, щоб вона повертала масив усіх цілих чисел від значення min до max.
-
-function createArrayOfNumbers(min, max) {
-  const numbers = [];
-
-  for (let i = min; i <= max; i += 1) {
-    numbers.push(i);
-  }
-
-  return numbers;
-}
-
-console.log(createArrayOfNumbers(29, 34));
-
-console.log(`-------------------ФІЛЬТРАЦІЯ МАСИВУ ЧИСЕЛ--------------------`);
-
-//Напиши функцію filterArray(numbers, value), яка приймає масив чисел (параметр numbers) і повертає новий масив, в якому будуть тільки ті елементи масиву numbers, які більші за значення параметра value (число).
-
-// function filterArray(numbers, value) {
-//   let filteredNumbers = [];
-
-// for (let i = 0; i < numbers.length; i += 1) {
-//   const number = numbers[i];
-
-//   if (number > value) {
-//     filteredNumbers.push(number);
-//   }
-// }
-
-//   for (const number of numbers) {
-//     if (number > value) {
-//       filteredNumbers.push(number);
-//     }
+console.log(`------------------------------------------------------------`);
+
+// const animal = {
+//   legs: 4,
+// };
+
+// const dog = Object.create(animal);
+// dog.name = "Манго";
+
+// console.log(dog); // {name: 'Манго'}
+// console.log(dog.name); // 'Манго'
+// console.log(dog.legs); // 4
+
+// console.log(animal.legs);
+
+console.log(`------------------------------------------------------------`);
+
+// const book = {
+//   title: "The Last Kingdom",
+//   author: "Bernard Cornwell",
+//   genres: ["historical prose", "adventure"],
+//   rating: 8.38,
+// };
+
+// for (const key in book) {
+//   // Якщо це власна властивість - виконуємо тіло if
+//   if (book.hasOwnProperty(key)) {
+//     console.log(key);
+//     console.log(book[key]);
 //   }
 
-//   return filteredNumbers;
+//   // Якщо це невласна властивість - нічого не робимо
 // }
 
-// console.log(filterArray([1, 2, 3, 4, 5], 3)); //повертає [4, 5]
+console.log(`------------------------------------------------------------`);
 
-console.log(`-----------------СПІЛЬНІ ЕЛЕМЕНТИ----------------------`);
+// const book = {
+//   title: "The Last Kingdom",
+//   author: "Bernard Cornwell",
+//   genres: ["historical prose", "adventure"],
+//   rating: 8.38,
+// };
 
-// Спільними елементами масивів називають ті елементи, які присутні у всіх масивах.
-//
-// Наприклад, у двох масивах [1, 3, 5] і [0, 8, 5, 3] спільними будуть числа 3 і 5, оскільки вони присутні в обох вихідних масивах. А числа 0, 1 і 8 присутні тільки в одному з масивів.
-//
-// Напиши функцію getCommonElements(array1, array2), яка отримує два масиви довільної довжини в параметри array1 і array2, і повертає новий масив, що складається з тих елементів, які присутні в обох вихідних масивах.
+// console.log(Object.keys(book));
 
-// function getCommonElements(array1, array2) {
-//   const newArray = [];
+// const keys = Object.keys(book);
 
-//   for (const element of array1) {
-//     if (array2.includes(element)) {
-//       newArray.push(element);
-//     }
-//   }
-//   return newArray;
+// for (const key of keys) {
+//   // Ключ
+//   console.log(key);
+//   // Значення властивості
+//   console.log(book[key]);
 // }
 
-// console.log(getCommonElements([1, 2, 3], [2, 4])); // повертає [2]
+console.log(`------------------------------------------------------------`);
 
-console.log(`---------------------------------------`);
-
-// Перебери об'єкт apartment, використовуючи цикл for...in, і запиши в масив keys всі його ключі, а в масив values всі значення його властивостей.
+// Перебери об'єкт apartment, використовуючи цикл for...in,
+// і запиши в масив keys всі його ключі, а в масив values всі значення його властивостей.
 
 // const apartment = {
-//   descr: 'Spacious apartment in the city center',
+//   descr: "Spacious apartment in the city center",
 //   rating: 4,
 //   price: 2153,
 // };
-// const keys = [];
-// const values = [];
+// let keys = [];
+
+// let values = [];
 // // Change code below this line
 
 // for (let key in apartment) {
-//   console.log(key);
-//   let keys = key;
+//   if (apartment.hasOwnProperty(key)) {
+//     keys = Object.keys(apartment);
+//     values = Object.values(apartment);
+//   }
 // }
 
 // console.log(keys);
+// console.log(values);
 
-console.log(`---------------------------------------`);
+console.log(`------------ПІДРАХУНОК ВЛАСТИВОСТЕЙ--------------`);
 
-const book = {
-  title: 'The Last Kingdom',
-  author: 'Bernard Cornwell',
-  rating: 8.38,
-};
-const keys = Object.keys(book);
-console.log(keys); // ['title', 'author', 'rating']
+//Напиши функцію countProps(object), яка рахує і повертає кількість
+//власних властивостей об'єкта в параметрі object.
+//Використовуй змінну propCount для зберігання кількості властивостей об'єкта.
 
-const values = Object.values(book);
-console.log(values); // ['The Last Kingdom', 'Bernard Cornwell', 8.38]
+// function countProps(object) {
+//   let propCount = 0;
 
-const entries = Object.entries(book);
-console.log(entries);
-// [["title", "The Last Kingdom"], ["author", "Bernard Cornwell"], ["rating", 8.38]]
+//   propCount = Object.values(object);
+//   propCount = propCount.length;
 
-console.log(`-----------------Масив об'єктів----------------------`);
+//   return propCount;
+// }
+
+// console.log(countProps({})); //повертає 0
+// console.log(countProps({ name: "Mango", age: 2 })); //повертає 2
+// console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 })); //повертає 3
+
+console.log(`------------МЕТОД OBJECT.KEYS()--------------`);
+
+// const book = {
+//   author: "Bernard Cornwell",
+//   genres: ["historical prose", "adventure"],
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+
+// for (const key of keys) {
+//   // Ключ
+//   console.log(key);
+//   // Значення властивості
+//   console.log(book[key]);
+// }
+
+//Перебери об'єкт apartment, використовуючи метод Object.keys() і цикл for...of.
+//Запиши у змінну keys масив ключів власних властивостей об'єкта apartment,
+//і додай в масив values всі значення його властивостей.
+
+// const apartment = {
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+
+// const keys = Object.keys(apartment);
+
+// for (const key of keys) {
+//   values.push(apartment[key]);
+// }
+
+// console.log(keys);
+// console.log(values);
+
+console.log(`------------ВИТРАТИ НА ЗАРПЛАТУ--------------`);
+
+//Напиши функцію countTotalSalary(salaries), яка приймає об'єкт зарплат,
+///де ім'я властивості - це ім'я співробітника, а значення властивості - це зарплата.
+//Функція повинна розрахувати загальну суму зарплат співробітників і повернути її.
+//Використовуй змінну totalSalary для зберігання загальної суми зарплати.
+
+// function countTotalSalary(salaries) {
+//   let totalSalary = 0;
+
+//   keys = Object.keys(salaries);
+
+//   for (const key of keys) {
+//     totalSalary += salaries[key];
+//   }
+
+//   return totalSalary;
+// }
+
+// console.log(countTotalSalary({})); //повертає 0
+// console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 })); //повертає 330
+// console.log(countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 })); //повертає 400
+
+//Функція враховує тільки власні властивості об'єкта
+
+console.log(`------------МАСИВ ОБ'ЄКТІВ--------------`);
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "На березі спокійних вод",
+//     author: "Роберт Шеклі",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "Сон смішної людини",
+//     author: "Федір Достоєвський",
+//     rating: 7.75,
+//   },
+// ];
+
+// for (const book of books) {
+//   // Об'єкт книги
+//   console.log(book);
+//   // Назва
+//   console.log(book.title);
+//   // Автор
+//   console.log(book.author);
+//   // Рейтинг
+//   console.log(book.rating);
+// }
+
+// const bookNames = [];
+
+// for (const book of books) {
+//   bookNames.push(book.title);
+// }
+
+// console.log(bookNames); // ["The Last Kingdom", "На березі спокійних вод", "Сон смішної людини"]
+
+//Перебери масив об'єктів colors, використовуючи цикл for...of.
+//Додай у масив hexColors значення властивостей hex,
+//а в масив rgbColors - значення властивостей rgb з усіх об'єктів масиву colors.
+
+// const colors = [
+//   {
+//     hex: "#f44336",
+//     rgb: "244,67,54",
+//   },
+//   {
+//     hex: "#2196f3",
+//     rgb: "33,150,243",
+//   },
+//   {
+//     hex: "#4caf50",
+//     rgb: "76,175,80",
+//   },
+//   {
+//     hex: "#ffeb3b",
+//     rgb: "255,235,59",
+//   },
+// ];
+
+// const hexColors = [];
+// let rgbColors = [];
+
+// for (const color of colors) {
+//   hexColors.push(color.hex);
+//   rgbColors.push(color.rgb);
+// }
+
+// console.log(hexColors);
+// console.log(rgbColors);
+
+// Оголошена змінна colors
+// Значення змінної colors - це масив
+// Оголошена змінна hexColors
+// Значення змінної hexColors - це масив ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"]
+// Оголошена змінна rgbColors
+// Значення змінної rgbColors - це масив ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+
+console.log(`------------ПОШУК ОБ'ЄКТА ЗА ЗНАЧЕННЯМ ВЛАСТИВОСТІ--------------`);
+
+//Напиши функцію getProductPrice(productName),
+//яка приймає один параметр productName - назва продукту.
+//Функція шукає об'єкт продукту з таким ім'ям(властивість name) в масиві products
+//і повертає його ціну(властивість price).
+//Якщо продукт з такою назвою не знайдений, функція повинна повертати null.
+
+// const products = [
+//   { name: "Radar", price: 1300, quantity: 4 },
+//   { name: "Scanner", price: 2700, quantity: 3 },
+//   { name: "Droid", price: 400, quantity: 7 },
+//   { name: "Grip", price: 1200, quantity: 9 },
+// ];
+
+// function getProductPrice(productName) {
+//   for (const product in products) {
+//     // Якщо це власна властивість - виконуємо тіло if
+//     if (products.hasOwnProperty(product)) {
+//       console.log(products.price);
+//       return products.price;
+//     }
+//   }
+
+//   // for (const product of products) {
+//   //   if (productName === product.name) {
+//   //     console.log(product.price);
+
+//   //     return product.price;
+//   //   }
+//   // }
+// }
+
+// getProductPrice("Radar"); //повертає 1300.
+// getProductPrice("Grip"); //повертає 1200.
+// getProductPrice("Scanner"); //повертає 2700.
+// getProductPrice("Droid"); //повертає 400.
+// getProductPrice("Engine"); //повертає null.
+
+console.log(
+  `-----------------КОЛЕКЦІЯ ЗНАЧЕНЬ ВЛАСТИВОСТІ----------------------`
+);
+
+// Напиши функцію getAllPropValues(propName),
+//яка приймає один параметр propName - ім'я (ключ) властивості.
+//Функція повинна повернути масив всіх значень властивості
+//з таким ім'ям з кожного об'єкта в масиві products.
+//Якщо в об'єктах відсутні властивості з таким ім'ям, функція повинна повернути порожній масив.
+
+// const products = [
+//   { name: "Radar", price: 1300, quantity: 4 },
+//   { name: "Scanner", price: 2700, quantity: 3 },
+//   { name: "Droid", price: 400, quantity: 7 },
+//   { name: "Grip", price: 1200, quantity: 9 },
+// ];
+
+// function getAllPropValues(propName) {
+//   // Change code below this line
+
+//   const productName = [];
+//   for (const product of products) {
+// if (Object.keys(product).includes(propName)) {
+//       productName.push(product[propName]);
+//     }
+//   }
+//   return productName;
+
+//   // Change code above this line
+// }
+
+// console.log(getAllPropValues("name")); // повертає ["Radar", "Scanner", "Droid", "Grip"]
+// console.log(getAllPropValues("quantity")); // повертає [4, 3, 7, 9]
+// console.log(getAllPropValues("price")); // повертає [1300, 2700, 400, 1200]
+// console.log(getAllPropValues("category")); // повертає []
+
+console.log(`-----------------ЗАГАЛЬНА ВАРТІСТЬ ТОВАРУ----------------------`);
+
+//Напиши функцію calculateTotalPrice(productName),
+//яка приймає один параметр productName - назва товару.
+//Функція повинна повернути загальну вартість(ціна * кількість) товару
+//з таким ім'ям з масиву products.
+
+const products = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+let totalPrice;
+
+function calculateTotalPrice(productName) {
+  for (const product of products) {
+    if (product.name === productName) {
+      totalPrice = product.price * product.quantity;
+      //console.log(totalPrice);
+      return totalPrice;
+    }
+  }
+  return 0;
+}
+
+console.log(calculateTotalPrice("Blaster")); //  повертає 0
+console.log(calculateTotalPrice("Radar")); // повертає 5200
+console.log(calculateTotalPrice("Droid")); // повертає 2800
+console.log(calculateTotalPrice("Grip")); // повертає 10800
+console.log(calculateTotalPrice("Scanner")); // повертає 8100
+
+console.log(`-----------------ЗМІНА ІМЕНІ ЗМІННОЇ----------------------`);
+
+// const firstBook = {
+//   title: "Останнє королівство",
+//   coverImage:
+//     "https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg",
+// };
+
+// const {
+//   title: firstTitle,
+//   coverImage: firstCoverImage = "https://via.placeholder.com/640/480",
+// } = firstBook;
+
+// console.log(firstTitle); // Останнє королівство
+// console.log(firstCoverImage); // https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg
+
+// const secondBook = {
+//   title: "Сон смішної людини",
+// };
+
+// const {
+//   title: secondTitle,
+//   coverImage: secondCoverImage = "https://via.placeholder.com/640/480",
+// } = secondBook;
+
+// console.log(secondTitle); // Сон смішної людини
+// console.log(secondCoverImage); // https://via.placeholder.com/640/480
+
+console.log(`-----------------ДЕСТРУКТУРИЗАЦІЯ В ЦИКЛАХ----------------------`);
 
 const books = [
   {
-    title: 'The Last Kingdom',
-    author: 'Bernard Cornwell',
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
     rating: 8.38,
   },
   {
-    title: 'На березі спокійних вод',
-    author: 'Роберт Шеклі',
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
     rating: 8.51,
-  },
-  {
-    title: 'Сон смішної людини',
-    author: 'Федір Достоєвський',
-    rating: 7.75,
   },
 ];
 
-for (const book of books) {
-  // Об'єкт книги
-  // console.log(book);
-  // Назва
-  // console.log(book.title);
-  // Автор
-  // console.log(book.author);
-  // Рейтинг
-  // console.log(book.rating);
+// for (const book of books) {
+//   console.log(book.title);
+//   console.log(book.author);
+//   console.log(book.rating);
+// }
+
+//Для того щоб скоротити кількість повторень,
+//можна деструктуризувати властивості об'єкта у локальні змінні в тілі циклу.
+
+// for (const book of books) {
+//   const { title, author, rating } = book;
+
+//   console.log(title);
+//   console.log(author);
+//   console.log(rating);
+// }
+
+//Якщо об'єкт містить небагато властивостей,
+//деструктуризація можна виконати безпосередньо в місці оголошення змінної book.
+
+for (const { title, author, rating } of books) {
+  console.log(title);
+  console.log(author);
+  console.log(rating);
 }
 
-const bookNames = [];
+//Виконай рефакторинг циклу for...of таким чином,
+//щоб в ньому використовувалася деструктуризація об'єкта.
 
-for (const book of books) {
-  bookNames.push(book.title);
+const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColors = [];
+const rgbColors = [];
+// Change code below this line
+
+for (const { hex, rgb } of colors) {
+  hexColors.push(hex);
+  rgbColors.push(rgb);
 }
 
-console.log(bookNames); // ["The Last Kingdom", "На березі спокійних вод", "Сон смішної людини"]
+console.log(hexColors);
+console.log(rgbColors);
 
-let totalRating = 0;
+console.log(`-----------------КАРТКИ ЗАВДАНЬ----------------------`);
 
-for (const book of books) {
-  totalRating += book.rating;
+//Напиши функцію makeTask(data) яка приймає один параметр data - об'єкт з наступними властивостями.
+
+//text - текст завдання.
+//category - категорія завдання.
+//priority - пріоритет завдання.
+
+//Функція повинна створити і повернути новий об'єкт завдання,
+//не змінюючи напряму параметр data.
+//У новому об'єкті повинна бути властивість completed,
+//значення якої зберігається в однойменній локальній змінній.
+
+//В параметрі data гарантовано буде тільки властивість text,
+//а інші дві, category і priority, можуть бути відсутніми.
+//Тоді, в новому об'єкті завдання, у властивостях category і priority
+//повинні бути значення за замовчуванням, що зберігаються в однойменних локальних змінних.
+
+function makeTask(data) {
+  const completed = false;
+  const category = "General";
+  const priority = "Normal";
+  // Change code below this line
+
+  const newTask = { category, priority, completed };
+  console.log(newTask);
+
+  return { ...newTask, ...data };
+  // Change code above this line
 }
 
-const averageRating = (totalRating / books.length).toFixed(1);
-console.log(averageRating); // 8.2
+//console.log(makeTask({}));
+//повертає { category: "General", priority: "Normal", completed: false }
 
-console.log(`---------------------------------------`);
+console.log(
+  makeTask({
+    category: "Homemade",
+    priority: "Low",
+    text: "Take out the trash",
+  })
+);
+//повертає { category: "Homemade", priority: "Low", text: "Take out the trash", completed: false }
+
+console.log(makeTask({ category: "Finance", text: "Take interest" }));
+//повертає { category: "Finance", priority: "Normal", text: "Take interest", completed: false }
+
+//?console.log(makeTask({ priority: "Low", text: "Choose shampoo" }));
+//повертає { category: "General", priority: "Low", text: "Choose shampoo", completed: false }
+
+//console.log(makeTask({ text: "Buy bread" }));
+//повертає { category: "General", priority: "Normal", text: "Buy bread", completed: false }
+
+console.log(
+  `-----------------ОПЕРАЦІЯ REST ДЛЯ ЗБИРАННЯ ВСІХ АРГУМЕНТІВ ФУНКЦІЇ----------------------`
+);
+
+function multiply(...args) {
+  console.log(args); // масив усіх аргументів
+}
+
+multiply(1, 2);
+multiply(1, 2, 3);
+multiply(1, 2, 3, 4);
+
+//Використовуючи операцію rest, доповни код функції add() таким чином,
+//щоб вона приймала будь - яку кількість аргументів, рахувала і повертала їх суму.
+
+function add(...args) {
+  let addSum = 0;
+
+  for (const arg of args) {
+    addSum += arg;
+  }
+  return addSum;
+}
+
+console.log(add(15, 27)); //повертає 42
+console.log(add(12, 4, 11, 48)); //повертає 75
+console.log(add(32, 6, 13, 19, 8)); //повертає 78
+console.log(add(74, 11, 62, 46, 12, 36)); //повертає 241
+
+console.log(
+  `-----------------ОПЕРАЦІЯ REST ДЛЯ ЗБИРАННЯ ЧАСТИНИ АРГУМЕНТІВ ФУНКЦІЇ----------------------`
+);
+
+//Функція addOverNum() рахує суму всіх аргументів.
+//Зміни параметри і тіло функції addOverNum() таким чином,
+//щоб вона рахувала суму тільки тих аргументів, які більші за задане число.
+//Це число повинно бути першим параметром функції.
+
+function addOverNum(firstNumber, ...args) {
+  let total = 0;
+
+  for (const arg of args) {
+    if (firstNumber < arg) {
+      total += arg;
+    }
+  }
+
+  return total;
+}
+
+console.log(addOverNum(50, 15, 27)); //повертає 0
+console.log(addOverNum(10, 12, 4, 11, 48, 10, 8)); //повертає 71
+console.log(addOverNum(15, 32, 6, 13, 19, 8)); //повертає 51
+console.log(addOverNum(20, 74, 11, 62, 46, 12, 36)); //повертає 218
+
+console.log(`-----------------МАСИВ ЗБІГІВ----------------------`);
+
+//Функція findMatches() приймає довільну кількість аргументів.
+//Першим аргументом завжди буде масив чисел, а решта аргументів будуть просто числами.
+
+//Доповни код функції таким чином, щоб вона повертала новий масив matches,
+//в якому будуть тільки ті аргументи, починаючи з другого, які є в масиві першого аргументу.
+
+//Наприклад, findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7) повинна повернути масив [1, 2],
+//тому що тільки вони є в масиві першого аргументу.
+
+function findMatches(...args) {
+  const matches = []; // Don't change this line
+
+  console.log(args);
+  // Change code above this line
+  return matches;
+}
+
+console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7)); //повертає [1, 2]
+console.log(findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2)); //повертає [17, 89, 2]
+console.log(findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41)); //повертає [24, 9, 41]
+console.log(findMatches([63, 11, 8, 29], 4, 7, 16)); //повертає []
+
+console.log(`-----------------МАСИВ ЗБІГІВ----------------------`);

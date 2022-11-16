@@ -1,4 +1,6 @@
-console.log(`---------------------------ФУНКЦІЯ ЯК ЗНАЧЕННЯ----------------------------------`);
+console.log(
+  `---------------------------ФУНКЦІЯ ЯК ЗНАЧЕННЯ----------------------------------`,
+);
 
 function greet(name) {
   return `Ласкаво просимо ${name}.`;
@@ -17,7 +19,9 @@ console.log(greet);
 }
 */
 
-console.log(`---------------------------КОЛБЕК-ФУНКЦІЇ----------------------------------`);
+console.log(
+  `---------------------------КОЛБЕК-ФУНКЦІЇ----------------------------------`,
+);
 
 // Колбек-функція
 function greet(name) {
@@ -32,7 +36,9 @@ function registerGuest(name, callback) {
 
 registerGuest('Mango', greet);
 
-console.log(`---------------------------ІНЛАЙН-КОЛБЕКИ----------------------------------`);
+console.log(
+  `---------------------------ІНЛАЙН-КОЛБЕКИ----------------------------------`,
+);
 
 function registerGuest(name, callback) {
   console.log(`Реєструємо гостя ${name}.`);
@@ -49,7 +55,9 @@ registerGuest('Poly', function notify(name) {
   console.log(`Шановний(а) ${name}, ваш номер буде готовий за 30 хвилин.`);
 });
 
-console.log(`---------------------------ДЕКІЛЬКА КОЛБЕКІВ----------------------------------`);
+console.log(
+  `---------------------------ДЕКІЛЬКА КОЛБЕКІВ----------------------------------`,
+);
 
 function processCall(recipient, onAvailable, onNotAvailable) {
   // Імітуємо доступність абонента випадковим числом
@@ -101,7 +109,9 @@ const pizzaPalace = {
     if (this.pizzas.includes(pizzaName)) {
       return onSuccess(pizzaName);
     }
-    return onError(`There is no pizza with a name ${pizzaName} in the assortment.`);
+    return onError(
+      `There is no pizza with a name ${pizzaName} in the assortment.`,
+    );
   },
 };
 // Change code above this line
@@ -454,7 +464,9 @@ console.log(planets); //це масив ["Earth", "Mars", "Venus", "Jupiter"]
 console.log(planetsLengths); //це масив [5, 4, 5, 7]
 //Для перебирання масиву планет використаний метод map()
 
-console.log(`--------------------МЕТОД MAP() І МАСИВ ОБ'ЄКТІВ-----------------------`);
+console.log(
+  `--------------------МЕТОД MAP() І МАСИВ ОБ'ЄКТІВ-----------------------`,
+);
 
 //Ми вже знаємо, що повсякденне завдання - це маніпуляція масивом об'єктів. Наприклад, отримати масив значень властивості з усіх об'єктів. У нас є масив студентів, а потрібно отримати окремий масив їхніх імен.
 
@@ -519,7 +531,7 @@ console.log(`--------------------МЕТОД FLATMAP()-----------------------`);
 // console.log(students.flatMap(student => student.courses));
 // // ["mathematics", "physics", "science", "mathematics", "physics", "biology"];
 
-// //Він викликає колбек-функцію для кожного елемента вихідного масиву, а результат її роботи записує у новий масив. Відмінність від map() у тому, що новий масив «розгладжується» на глибину, що дорівнює одиниці (одна вкладеність). Цей розгладжений масив і є результатом роботи flatMap().
+//Він викликає колбек-функцію для кожного елемента вихідного масиву, а результат її роботи записує у новий масив. Відмінність від map() у тому, що новий масив «розгладжується» на глибину, що дорівнює одиниці (одна вкладеність). Цей розгладжений масив і є результатом роботи flatMap().
 
 console.log(`------------------------------------------------------`);
 
@@ -551,6 +563,7 @@ console.log(`------------------------------------------------------`);
 // //Оголошена змінна genres
 // console.log(genres); //Значення змінної genres - це масив [ "adventure", "history", "fiction", "horror", "mysticism" ]
 // //Для перебирання масиву books використовується метод flatMap()
+
 console.log(`---------------МЕТОД FILTER() І МАСИВ ОБ'ЄКТІВ------------------`);
 
 //Під час роботи з масивом об'єктів виконується фільтрація за значенням певної властивості. У підсумку, утворюється новий масив відфільтрованих об'єктів.
@@ -757,29 +770,7 @@ console.log(`----------ЗАГАЛЬНА КІЛЬКІСТЬ ДРУЗІВ---------
 //Виклик функції із зазначеним масивом користувачів повертає число 14
 //Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
 
-console.log(`--------------------FIND()-----------------------`);
-
-const colorPickerOptions = [
-  { label: 'red', color: '#F44336' },
-  { label: 'green', color: '#4CAF50' },
-  { label: 'blue', color: '#2196F3' },
-  { label: 'pink', color: '#E91E63' },
-  { label: 'indigo', color: '#3F51B5' },
-];
-
-console.log(colorPickerOptions.find(option => option.label === 'blue')); // { label: "blue", color: "#2196F3" }
-console.log(colorPickerOptions.find(option => option.label === 'pink')); // { label: "pink", color: "#E91E63" }
-console.log(colorPickerOptions.find(option => option.label === 'white')); // undefined
-
-console.log(`--------------------EVERY()-----------------------`);
-
-// Усі елементи більші або дорівнюють нулю? - так
-[1, 2, 3, 4, 5].every(value => value >= 0); // true
-
-// Усі елементи більші або дорівнюють нулю? - ні
-[1, 2, 3, -10, 4, 5].every(value => value >= 0); // false
-
-console.log(`---------------------------Метод sort()----------------------------`);
+console.log(`----------Метод sort()-------------`);
 
 //Такий масив чисел буде відсортований за зростанням.
 
@@ -813,153 +804,46 @@ const ascendingScores = [...scores3].sort();
 console.log(scores3); // [61, 19, 74, 35, 92, 56]
 console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
 
-console.log(`=====================================================================`);
+console.log(`----------Метод sort()-------------`);
 
-//Доповни код таким чином, щоб у змінній ascendingReleaseDates вийшла копія масиву releaseDates, відсортована за зростанням, а у змінній alphabeticalAuthors - копія масиву імен авторів authors, відсортована за алфавітом.
-
-// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
-// const authors = ['Tanith Lee', 'Bernard Cornwell', 'Robert Sheckley', 'Fyodor Dostoevsky'];
+// const books = [
+//   {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     rating: 8.38,
+//   },
+//   {
+//     title: 'Beside Still Waters',
+//     author: 'Robert Sheckley',
+//     rating: 8.51,
+//   },
+//   {
+//     title: 'The Dream of a Ridiculous Man',
+//     author: 'Fyodor Dostoevsky',
+//     rating: 7.75,
+//   },
+//   { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+//   { title: 'Enemy of God', author: 'Bernard Cornwell', rating: 8.67 },
+// ];
 // // Change code below this line
 
-// const ascendingReleaseDates = [...releaseDates].sort();
-
-// const alphabeticalAuthors = [...authors].sort();
-
-// console.log(releaseDates); //[2016, 1967, 2008, 1984, 1973, 2012, 1997]
-// console.log(authors); //["Tanith Lee", "Bernard Cornwell", "Robert Sheckley", "Fyodor Dostoevsky"]
-// console.log(ascendingReleaseDates); //[1967, 1973, 1984, 1997, 2008, 2012, 2016]
-// console.log(alphabeticalAuthors); //["Bernard Cornwell", "Tanith Lee", "Robert Sheckley", "Fyodor Dostoevsky"]
-// //Використаний метод sort()
-console.log(`=====================================================================`);
-
-console.log(`------------------сортування методу sort(compareFunction)-------------------`);
-
-//Якщо виклик compareFunction(a, b) повертає будь-яке від'ємне значення, тобто a менше b, сортування поставить a перед b. Це сортування за зростанням.
-
-// const scores = [61, 19, 74, 35, 92, 56];
-// const ascendingScores = [...scores].sort((a, b) => a - b);
-// console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
-
-//Якщо виклик compareFunction(a, b) повертає будь-яке додатне значення більше нуля, тобто b більше a, сортування поставить b перед a. Це сортування за спаданням.
-
-// const scores = [61, 19, 74, 35, 92, 56];
-// const descendingScores = [...scores].sort((a, b) => b - a);
-// console.log(descendingScores); // [92, 74, 61, 56, 35, 19]
-
-console.log(`=====================================================================`);
-
-//Онлайн бібіліотеці необхідно відображати книги, відсортовані за датою видання, за її зростанням або спаданням. Доповни код таким чином, щоб у змінній ascendingReleaseDates вийшла копія масиву releaseDates, відсортована за зростанням, а у змінній descendingReleaseDates - копія, відсортована за спаданням.
-
-const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
-// Change code below this line
-
-const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
-
-const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
-
-console.log(releaseDates); // [2016, 1967, 2008, 1984, 1973, 2012, 1997]
-console.log(ascendingReleaseDates); // [1967, 1973, 1984, 1997, 2008, 2012, 2016]
-console.log(descendingReleaseDates); //[2016, 2012, 2008, 1997, 1984, 1973, 1967]
-//Використаний метод sort()
-
-console.log(`-----------------------localeCompare()------------------------`);
-
-//Для сортування рядків в алфавітному порядку, за зростанням або спаданням, використовується метод рядків localeCompare().
-
-//Він викликається на рядку, який потрібно порівняти (firstString) з тим, що був переданий йому як аргумент (secondString).
-//Повертає від'ємне значення, якщо firstString повинен бути перед secondString.
-//Повертає додатне значення більше нуля, якщо firstString повинен бути після secondString.
-//Якщо рядки однакові, повертається нуль.
-
-console.log('a'.localeCompare('b')); // -1
-console.log('b'.localeCompare('a')); // 1
-console.log('a'.localeCompare('a')); // 0
-console.log('b'.localeCompare('b')); // 0
-
-//Це зручно використовувати для сортування рядків, оскільки метод sort() очікує такі самі значення від колбек-функції.
-
-const students3 = ['Jacob', 'Artemis', 'Solomon', 'Adrian', 'Kai', 'Ganymede'];
-
-const inAlphabetOrder = [...students3].sort((a, b) => a.localeCompare(b));
-console.log(inAlphabetOrder); // [ "Adrian", "Artemis", "Ganymede", "Jacob", "Kai", "Solomon" ]
-
-const inReversedOrder = [...students3].sort((a, b) => b.localeCompare(a));
-console.log(inReversedOrder); // [ "Solomon", "Kai", "Jacob", "Ganymede", "Artemis", "Adrian" ]
-
-//Під час роботи з масивом об'єктів, сортування виконується за числовим або рядковим значенням певної властивості. Наприклад, у нас є група студентів з балами за тест. Необхідно відсортувати масив об'єктів за зростанням і спаданням кількості балів, і за ім'ям студента.
-
-const students4 = [
-  { name: 'Mango', score: 83 },
-  { name: 'Poly', score: 59 },
-  { name: 'Ajax', score: 37 },
-  { name: 'Kiwi', score: 94 },
-];
-
-const inAscendingScoreOrder = students4.sort(
-  (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
-);
-
-console.log(inAscendingScoreOrder);
-
-const inDescendingScoreOrder = students4.sort(
-  (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
-);
-console.log(inDescendingScoreOrder);
-
-const inAlphabeticalOrder = students4.sort((firstStudent, secondStudent) =>
-  firstStudent.name.localeCompare(secondStudent.name)
-);
-
-console.log(inAlphabeticalOrder);
-
-console.log(`=====================================================================`);
-
-//Доповни код таким чином, щоб:
-
-//У змінній sortedByAuthorName вийшов масив книг, відсортований за ім'ям автора в алфавітному порядку.
-//У змінній sortedByReversedAuthorName вийшов масив книг, відсортований за ім'ям автора у зворотному алфавітному порядку.
-//У змінній sortedByAscendingRating вийшов масив книг, відсортований за зростанням рейтингу.
-//У змінній sortedByDescentingRating вийшов масив книг, відсортований за спаданням рейтингу.
-
-//* const books = [
-//*   {
-//*     title: 'The Last Kingdom',
-//*     author: 'Bernard Cornwell',
-//*     rating: 8.38,
-//*   },
-//*   {
-//*     title: 'Beside Still Waters',
-//*     author: 'Robert Sheckley',
-//*     rating: 8.51,
-//*   },
-//*   {
-//*     title: 'The Dream of a Ridiculous Man',
-//*     author: 'Fyodor Dostoevsky',
-//*     rating: 7.75,
-//*   },
-//*   { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
-//*   { title: 'Enemy of God', author: 'Bernard Cornwell', rating: 8.67 },
-//* ];
-// // Change code below this line
-
-// const sortedByAuthorName = books.sort((firstAuthor, secondAuthor) =>
-//   firstAuthor.author.localeCompare(secondAuthor.author)
+// const sortedByAuthorName = Object.values(books).sort(
+//   (firstAuthor, secondAuthor) =>
+//     firstAuthor.author.localeCompare(secondAuthor.author),
 // );
 
-// const sortedByReversedAuthorName = books.sort((firstAuthor, secondAuthor) =>
-//   secondAuthor.author.localeCompare(firstAuthor.author)
+// const sortedByReversedAuthorName = Object.values(books).sort(
+//   (firstAuthor, secondAuthor) =>
+//     secondAuthor.author.localeCompare(firstAuthor.author),
 // );
 
-// const sortedByAscendingRating = books.sort(
-//   (firstRating, secondRating) => firstRating.rating - secondRating.rating
+// const sortedByAscendingRating = Object.values(books).sort(
+//   (firstRating, secondRating) => firstRating.rating - secondRating.rating,
 // );
 
-// const sortedByDescentingRating = books.sort(
-//   (firstRating, secondRating) => secondRating.rating - firstRating.rating
+// const sortedByDescentingRating = Object.values(books).sort(
+//   (firstRating, secondRating) => secondRating.rating - firstRating.rating,
 // );
-
-// //Оголошена змінна books
-// //Значення змінної books - це вихідний масив об'єктів книг
 
 // console.log(sortedByAuthorName); //Значення змінної- це масив книг, відсортований за ім'ям автора в алфавітному порядку
 
@@ -1042,7 +926,9 @@ const users = [
 ];
 
 const sortByAscendingBalance = users => {
-  return [...users].sort((firstGrowth, secondGrowth) => firstGrowth.balance - secondGrowth.balance);
+  return [...users].sort(
+    (firstGrowth, secondGrowth) => firstGrowth.balance - secondGrowth.balance,
+  );
 };
 
 console.log(users); // Значення параметра users не змінюється
@@ -1057,7 +943,8 @@ console.log(`----------------------------------------------------------`);
 
 const sortByDescendingFriendCount = users => {
   return [...users].sort(
-    (firstFriend, secondFriend) => secondFriend.friends.length - firstFriend.friends.length
+    (firstFriend, secondFriend) =>
+      secondFriend.friends.length - firstFriend.friends.length,
   );
 };
 
@@ -1070,7 +957,9 @@ console.log(`----------------------------------------------------------`);
 //Доповни функцію sortByName(users) таким чином, щоб вона повертала масив користувачів, відсортований за їх ім'ям (властивість name) в алфавітному порядку.
 
 const sortByName = users => {
-  return [...users].sort((firstName, secondName) => firstName.name.localeCompare(secondName.name));
+  return [...users].sort((firstName, secondName) =>
+    firstName.name.localeCompare(secondName.name),
+  );
 };
 
 // Значення параметра users не змінюється
@@ -1115,14 +1004,13 @@ const uniqueSortedCourses = students
   .sort((a, b) => a.localeCompare(b));
 
 console.log(uniqueSortedCourses); // ["biology", "science", "literature", "mathematics", "physics"]
-
 //На вихідному масиві викликаємо flatMap() і робимо розгладжений масив усіх курсів.
 //До результату методу flatMap() застосовуємо метод filter() для фільтрації унікальних елементів.
 //На результаті методу filter() викликаємо sort().
 //Змінній uniqueSortedCourses присвоюється результат роботи методу sort().
 //Ланцюжок методів може бути довільної довжини, але, зазвичай, не більше 2-3 операцій.
 
-console.log(`==========================45/48====================================`);
+console.log(`==============================================================`);
 
 // Доповни код таким чином, щоб у змінній names вийшов масив імен авторів в алфавітному порядку, рейтинг книг яких більший за значення змінної MIN_BOOK_RATING.
 
@@ -1158,88 +1046,11 @@ const MIN_BOOK_RATING = 8;
 
 const names = books
   .filter(book => book.rating >= MIN_BOOK_RATING)
-  .sort((firstAuthor, secondAuthor) => firstAuthor.author.localeCompare(secondAuthor.author))
+  .sort((firstRating, secondRating) => firstRating.author - secondRating.author)
   .map(book => book.author);
 
 console.log(names); // ["Bernard Cornwell", "Howard Lovecraft", "Robert Sheckley"]
 // Відсутні оголошені змінні, крім books, MIN_BOOK_RATING і names
 // Використовується ланцюжок методів filter(), map(), sort()
 
-console.log(`==========================46/48====================================`);
-
-//Доповни функцію getNamesSortedByFriendCount(users) таким чином, щоб вона повертала масив імен користувачів, відсортований за зростанням кількості їхніх друзів (властивість friends).
-
-//? const users = [в строке 978]
-
-//* const users = [
-//*  {
-//*    name: 'Moore Hensley',
-//*    email: 'moorehensley@indexia.com',
-//*    eyeColor: 'blue',
-//*    friends: ['Sharron Pace'],
-//*    isActive: false,
-//*    balance: 2811,
-//*    gender: 'male',
-//*  },
-
-const getNamesSortedByFriendCount = users => {
-  return [...users]
-    .sort((firstFriend, secondFriend) => firstFriend.friends.length - secondFriend.friends.length)
-    .map(user => user.name);
-};
-
-console.log(getNamesSortedByFriendCount(users)); // ["Moore Hensley", "Sharlene Bush", "Elma Head", "Sheree Anthony", "Ross Vazquez", "Carey Barr", "Blackburn Dotson"]
-
-// У тілі функції використовується ланцюжок методів
-// Значення параметра users не змінюється
-
-console.log(`==========================47/48====================================`);
-
-//Доповни функцію getSortedFriends(users) таким чином, щоб вона повертала масив унікальних імен друзів (властивість friends), відсортований за алфавітом.
-
-//? const users = [в строке 978]
-
-const getSortedFriends = users => {
-  return [...users]
-    .flatMap(user => user.friends)
-    .filter((friend, index, array) => array.indexOf(friend) === index)
-    .sort((a, b) => a.localeCompare(b));
-};
-
-console.log(getSortedFriends(users)); //["Adrian Cross", "Aisha Tran", "Briana Decker", "Eddie Strong", "Goldie Gentry", "Jacklyn Lucas", "Jordan Sampson", "Linda Chapman", "Marilyn Mcintosh", "Naomi Buckner", "Padilla Garrison", "Sharron Pace", "Solomon Fokes"]
-
-//Значення параметра users не змінюється
-
-console.log(`==========================48/48====================================`);
-
-//Доповни функцію getTotalBalanceByGender(users, gender) таким чином, щоб вона повертала загальний баланс користувачів (властивість balance), стать яких (властивість gender) збігається зі значенням параметра gender.
-
-//? const users = [в строке 978]
-
-//* const users = [
-//*  {
-//*    name: 'Moore Hensley',
-//*    email: 'moorehensley@indexia.com',
-//*    eyeColor: 'blue',
-//*    friends: ['Sharron Pace'],
-//*    isActive: false,
-//*    balance: 2811,
-//*    gender: 'male',
-//*  },
-
-const getTotalBalanceByGender = (users, gender) => {
-  return [...users]
-    .filter(user => user.gender === gender)
-    .reduce((totalBalance, user) => {
-      return totalBalance + user.balance;
-    }, 0);
-};
-
-console.log(getTotalBalanceByGender(users, 'male')); // функція повертає число 12053
-
-console.log(getTotalBalanceByGender(users, 'female')); //функція повертає число 8863
-
-//У тілі функції використовується ланцюжок методів в правильному порядку
-// Значення параметра users не змінюється
-
-console.log(`======================End Of Self-Check============================`);
+console.log(`---------------------Ланцюжок методів-------------------------`);
