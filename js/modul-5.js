@@ -1235,23 +1235,24 @@ class User {
 class Admin extends User {
   // Change code below this line
 
+  blacklistedEmails = [];
+
+  blacklist(email) {
+    this.blacklistedEmails.push(email);
+  }
+
+  isBlacklisted(email) {
+    return this.blacklistedEmails.includes(email);
+  }
+
   static AccessLevel = {
     BASIC: 'basic',
     SUPERUSER: 'superuser',
   };
 
-  constructor({ email, accessLevel, blacklistedEmails }) {
+  constructor({ email, accessLevel }) {
     super(email);
     this.accessLevel = accessLevel;
-    this.blacklistedEmails = [blacklistedEmails];
-  }
-
-  blacklist(email) {
-    return this.blacklistedEmails.push(email);
-  }
-
-  isBlacklisted(email) {
-    return this.blacklistedEmails.includes(email);
   }
 
   // Change code above this line
@@ -1285,3 +1286,23 @@ console.log(mango.blacklist('poly@mail.com')); // значення власти�
 console.log(mango.isBlacklisted('mango@mail.com')); // повертає false
 
 console.log(mango.isBlacklisted('poly@mail.com')); // повертає true
+
+//* class User {
+//*   static #takenEmails = [];
+
+//*   static isEmailTaken(email) {
+//*     return User.#takenEmails.includes(email);
+//*   }
+
+//*   #email;
+
+//*   constructor({ email }) {
+//*     this.#email = email;
+//*     User.#takenEmails.push(email);
+//*   }
+//* }
+
+//* const mango = new User({ email: 'mango@mail.com' });
+
+//* console.log(User.isEmailTaken('poly@mail.com'));
+//* console.log(User.isEmailTaken('mango@mail.com'));
