@@ -280,25 +280,25 @@ console.log(`---------------- ({ Об'єкт параметрів }) -----------
 
 //Клас може приймати велику кількість вхідних даних для властивостей майбутнього об'єкта. Якщо параметрів багато (більше 2-х), то, як правило, застосовують патерн «Об'єкт параметрів». Ідея цього патерну у тому, щоб передавати як параметр один об'єкт з логічно іменованими властивостями. Значення властивостей такого об'єкта замінять набір аргументів.
 
-// class User {
-//   // Деструктуризуємо об'єкт
-//   constructor({ name, email }) {
-//     this.name = name;
-//     this.email = email;
-//   }
-// }
+//* class User {
+//*   // Деструктуризуємо об'єкт
+//*   constructor({ name, email }) {
+//*     this.name = name;
+//*     this.email = email;
+//*   }
+//* }
 
-// const mango = new User({
-//   name: 'Mango',
-//   email: 'mango@mail.com',
-// });
-// console.log(mango); // { name: "Mango", email: "mango@mail.com" }
+//* const mango = new User({
+//*   name: 'Mango',
+//*   email: 'mango@mail.com',
+//* });
+//* console.log(mango); // { name: "Mango", email: "mango@mail.com" }
 
-// const poly = new User({
-//   name: 'Poly',
-//   email: 'poly@mail.com',
-// });
-// console.log(poly); // { name: "Poly", email: "poly@mail.com" }
+//* const poly = new User({
+//*   name: 'Poly',
+//*   email: 'poly@mail.com',
+//* });
+//* console.log(poly); // { name: "Poly", email: "poly@mail.com" }
 
 console.log(`========================== 8/20 ============================`);
 
@@ -949,25 +949,25 @@ console.log(`-------------- статичні методи класу (static) --
 
 // В класі можна оголосити не тільки методи майбутнього екземпляра, а також методи, доступні тільки класу - статичні методи, які можуть бути як публічні, так і приватні. Синтаксис оголошення аналогічний статичним властивостям, за винятком того, що значенням буде метод.
 
-class User {
-  static #takenEmails = [];
+//* class User {
+//*   static #takenEmails = [];
 
-  static isEmailTaken(email) {
-    return User.#takenEmails.includes(email);
-  }
+//*   static isEmailTaken(email) {
+//*     return User.#takenEmails.includes(email);
+//*   }
 
-  #email;
+//*   #email;
 
-  constructor({ email }) {
-    this.#email = email;
-    User.#takenEmails.push(email);
-  }
-}
+//*   constructor({ email }) {
+//*     this.#email = email;
+//*     User.#takenEmails.push(email);
+//*   }
+//* }
 
-const mango = new User({ email: 'mango@mail.com' });
+//* const mango = new User({ email: 'mango@mail.com' });
 
-console.log(User.isEmailTaken('poly@mail.com'));
-console.log(User.isEmailTaken('mango@mail.com'));
+//* console.log(User.isEmailTaken('poly@mail.com'));
+//* console.log(User.isEmailTaken('mango@mail.com'));
 
 // Особливість статичних методів полягає у тому, що під час їх виклику ключове слово this посилається на сам клас. Це означає, що статичний метод може отримати доступ до статичних властивостей класу, але не до властивостей екземпляра. Логічно, тому що статичні методи викликає сам клас, а не його екземпляри.
 
@@ -1009,6 +1009,88 @@ console.log(Car.checkPrice(18000)); // повертає рядок "Success! Pri
 console.log(Car.checkPrice(64000)); // повертає рядок "Error! Price exceeds the maximum"
 console.log(Car.checkPrice(57000)); // повертає рядок "Error! Price exceeds the maximum"
 
-console.log(`-------------- статичні методи класу (static) --------------`);
+console.log(`----------------- Ключове слово ( extends ) ----------------`);
+
+//Ключове слово extends дозволяє реалізувати наслідування класів, коли один клас (дочірній, похідний) наслідує властивості та методи іншого класу (батьківського).
+
+//* class Child extends Parent {
+//*   // ...
+//* }
+
+// У виразі class Child extends Parent дочірній клас Child наслідує (розширює) від батьківського класу Parent. Це означає, що ми можемо оголосити базовий клас, який зберігає загальні характеристики і методи для групи похідних класів, які наслідують властивості і методи батьківського, але також додають свої унікальні.
+
+// Наприклад, у застосунку є користувачі з різними ролями — адміністратор, копірайтер, контент менеджер тощо. У кожного типу користувача є набір загальних характеристик, наприклад, пошта і пароль, але також є й унікальні.
+
+// Створивши незалежні класи для кожного типу користувача, ми отримаємо дублювання загальних властивостей і методів, і, якщо необхідно змінити, наприклад, назву властивості, доведеться проходити по усіх класах, а це незручно і вимагає багато часу.
+
+// Замість цього, можна створити загальний клас User, який буде зберігати набір загальних властивостей і методів, після чого, створити класи для кожного типу користувача, які наслідують цей набір від класу User. За потреби змінити щось спільне, достатньо буде змінити тільки код класу User.
+
+//* class User {
+//*   email;
+
+//*   constructor(email) {
+//*     this.email = email;
+//*   }
+
+//*   get email() {
+//*     return this.email;
+//*   }
+
+//*   set email(newEmail) {
+//*     this.email = newEmail;
+//*   }
+//* }
+
+//* class ContentEditor extends User {
+//*   // Тіло класу ContentEditor
+//* }
+
+//* const editor = new ContentEditor('mango@mail.com');
+//* console.log(editor); // { email: "mango@mail.com" }
+//* console.log(editor.email); // "mango@mail.com"
+
+//Клас ContentEditor наслідує від класу User його конструктор, гетер і сетер email, а також однойменну публічну властивість. Важливо пам'ятати, що приватні властивості і методи батьківського класу не наслідуються дочірнім класом.
 
 console.log(`========================= 18/20 ============================`);
+
+// У застосунку потрібен адміністратор з можливістю додавати пошти користувачів у чорний список.
+
+//Оголоси клас Admin, який наслідує від класу User
+
+//Додай класу Admin публічну статичну властивість AccessLevel (рівень доступу), значення якої — це об'єкт {BASIC: "basic", SUPERUSER: "superuser"}
+
+class User {
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+// Change code below this line
+
+class Admin extends User {
+  static AccessLevel = {
+    BASIC: 'basic',
+    SUPERUSER: 'superuser',
+  };
+}
+
+// Оголошений клас Admin
+
+// Клас Admin наслідує від класу User
+
+// Клас Admin містить публічну статичну властивість AccessLevel
+
+console.log(Admin.AccessLevel.BASIC); // повертає рядок "basic"
+
+console.log(Admin.AccessLevel.SUPERUSER); // повертає рядок "superuser"
+
+console.log(`----------------- Ключове слово ( extends ) ----------------`);
+
+console.log(`========================= 19/20 ============================`);
