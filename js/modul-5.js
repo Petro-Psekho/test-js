@@ -1152,6 +1152,11 @@ class Admin extends User {
     SUPERUSER: 'superuser',
   };
 
+  constructor({ email, accessLevel }) {
+    super(email);
+    this.accessLevel = accessLevel;
+  }
+
   // Change code above this line
 }
 
@@ -1173,8 +1178,8 @@ console.log(mango.accessLevel); // "superuser"
 
 // В класі Admin в конструкторі для властивості email використовується звернення до конструктора батьківського класу
 
-// Звернення до Admin.AccessLevel.BASIC повертає рядок "basic"
+console.log(Admin.AccessLevel.BASIC); // повертає рядок "basic"
 
-// Звернення до Admin.AccessLevel.SUPERUSER повертає рядок "superuser"
+console.log(Admin.AccessLevel.SUPERUSER); // повертає рядок "superuser"
 
 console.log(`========================= 19/20 ============================`);
