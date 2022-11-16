@@ -690,45 +690,45 @@ console.log(`-------------------- Гетери та сетери ---------------
 
 //Гетери та сетери доречно використовувати для простих операцій читання і зміни значення властивостей, особливо приватних, як їх публічний інтерфейс. Для роботи з властивістю, яка зберігає масив або об'єкт, вони не підійдуть.
 
-class User {
-  #email;
-  name;
+// class User {
+//   #email;
+//   name;
 
-  constructor({ name, email }) {
-    this.name = name;
-    this.#email = email;
-  }
+//   constructor({ name, email }) {
+//     this.name = name;
+//     this.#email = email;
+//   }
 
-  // Геттер email
-  get email() {
-    return this.#email;
-  }
+//   // Геттер email
+//   get email() {
+//     return this.#email;
+//   }
 
-  // Сеттер email
-  set email(newEmail) {
-    this.#email = newEmail;
-  }
+//   // Сеттер email
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
 
-  // Геттер name
-  get name() {
-    return this.name;
-  }
+//   // Геттер name
+//   get name() {
+//     return this.name;
+//   }
 
-  // Сеттер name
-  set name(newName) {
-    this.name = newName;
-  }
-}
+//   // Сеттер name
+//   set name(newName) {
+//     this.name = newName;
+//   }
+// }
 
-// Ми оголосили гетер і сетер email, поставивши перед ім'ям властивості ключові слова get і set. Всередині цих методів ми або повертаємо значення приватної властивості #email, або змінюємо її значення. Геттер і сетер застосовуються в парі та повинні називатися однаково.
+// // Ми оголосили гетер і сетер email, поставивши перед ім'ям властивості ключові слова get і set. Всередині цих методів ми або повертаємо значення приватної властивості #email, або змінюємо її значення. Геттер і сетер застосовуються в парі та повинні називатися однаково.
 
-const mango = new User({ name: 'Mango', email: 'mango@mail.com' });
-console.log(mango.email); // mango@mail.com
-console.log(mango.name); // Mango
-mango.email = 'mango@supermail.com';
-console.log(mango.email); // mango@supermail.com
-mango.name = 'Patrick';
-console.log(mango.name); // Patrick
+// const mango = new User({ name: 'Mango', email: 'mango@mail.com' });
+// console.log(mango.email); // mango@mail.com
+// console.log(mango.name); // Mango
+// mango.email = 'mango@supermail.com';
+// console.log(mango.email); // mango@supermail.com
+// mango.name = 'Patrick';
+// console.log(mango.name); // Patrick
 
 //Звертаючись до mango.email, викликається гетер get email() {...} і виконується його код. При спробі запису mango.email = "mango@supermail.com" викликається сетер set email(newEmail) {...} і рядок "mango@supermail.com" буде значенням параметра newEmail.
 
@@ -747,80 +747,80 @@ console.log(`========================= 15/20 ============================`);
 
 //Виконай рефакторинг класу Car. Зроби властивості model і price приватними, а також #brand. Стандартизуй публічний інтерфейс класу, замінивши вже оголошені методи на гетери та сетери brand, model і price, для взаємодії з приватними властивостями.
 
-class Car {
-  // Change code below this line
-  #brand;
-  #model;
-  #price;
+// class Car {
+//   // Change code below this line
+//   #brand;
+//   #model;
+//   #price;
 
-  constructor({ brand, model, price }) {
-    this.#brand = brand;
-    this.#model = model;
-    this.#price = price;
-  }
+//   constructor({ brand, model, price }) {
+//     this.#brand = brand;
+//     this.#model = model;
+//     this.#price = price;
+//   }
 
-  // getBrand() {
-  //   return this.#brand;
-  // }
+//   // getBrand() {
+//   //   return this.#brand;
+//   // }
 
-  // changeBrand(newBrand) {
-  //   this.#brand = newBrand;
-  // }
+//   // changeBrand(newBrand) {
+//   //   this.#brand = newBrand;
+//   // }
 
-  // Геттер brand
-  get brand() {
-    return this.#brand;
-  }
+//   // Геттер brand
+//   get brand() {
+//     return this.#brand;
+//   }
 
-  // Сеттер brand
-  set brand(newBrand) {
-    this.#brand = newBrand;
-  }
+//   // Сеттер brand
+//   set brand(newBrand) {
+//     this.#brand = newBrand;
+//   }
 
-  // getModel() {
-  //   return this.model;
-  // }
+//   // getModel() {
+//   //   return this.model;
+//   // }
 
-  // updateModel(newModel) {
-  //   this.model = newModel;
-  // }
+//   // updateModel(newModel) {
+//   //   this.model = newModel;
+//   // }
 
-  // Геттер model
-  get model() {
-    return this.#model;
-  }
+//   // Геттер model
+//   get model() {
+//     return this.#model;
+//   }
 
-  // Сеттер model
-  set model(newModel) {
-    this.#model = newModel;
-  }
+//   // Сеттер model
+//   set model(newModel) {
+//     this.#model = newModel;
+//   }
 
-  // getPrice() {
-  //   return this.#price;
-  // }
+//   // getPrice() {
+//   //   return this.#price;
+//   // }
 
-  // setPrice(newPrice) {
-  //   this.#price = newPrice;
-  // }
+//   // setPrice(newPrice) {
+//   //   this.#price = newPrice;
+//   // }
 
-  // Геттер price
-  get price() {
-    return this.#price;
-  }
+//   // Геттер price
+//   get price() {
+//     return this.#price;
+//   }
 
-  // Сеттер price
-  set price(newPrice) {
-    this.#price = newPrice;
-  }
+//   // Сеттер price
+//   set price(newPrice) {
+//     this.#price = newPrice;
+//   }
 
-  // Change code above this line
-}
+//   // Change code above this line
+// }
 
-console.log(new Car({ brand: 'Audi', model: 'Q3', price: 36000 }));
+// console.log(new Car({ brand: 'Audi', model: 'Q3', price: 36000 }));
 
-console.log(new Car({ brand: 'bmw', model: 'X5', price: 58900 }));
+// console.log(new Car({ brand: 'bmw', model: 'X5', price: 58900 }));
 
-console.log(new Car({ brand: 'Nissan', model: 'Murano', price: 31700 }));
+// console.log(new Car({ brand: 'Nissan', model: 'Murano', price: 31700 }));
 
 // Оголошений клас Car
 
@@ -844,4 +844,105 @@ console.log(new Car({ brand: 'Nissan', model: 'Murano', price: 31700 }));
 
 // В класі Car оголошений сетер price
 
-console.log(`========================= 15/20 ============================`);
+console.log(`----------- статичні властивості класу (static) ------------`);
+
+// Крім публічних і приватних властивостей майбутнього екземпляра, в класі можна оголосити його власні властивості, доступні тільки класові, але не його екземплярам - статичні властивості (static). Вони корисні для зберігання інформації, що стосується класу.
+
+// Додамо класу користувача приватну властивість role - його роль, що визначає набір прав, наприклад, адміністратор, редактор, звичайний користувач тощо. Можливі ролі користувачів будемо зберігати як статичну властивість Roles - об'єкт з властивостями.
+
+// Статичні властивості оголошуються в тілі класу. Перед ім'ям властивості додається ключове слово static.
+
+class User {
+  // Оголошення та ініціалізація статичної властивості
+  static Roles = {
+    ADMIN: 'admin',
+    EDITOR: 'editor',
+  };
+
+  #email;
+  #role;
+
+  constructor({ email, role }) {
+    this.#email = email;
+    this.#role = role;
+  }
+
+  get role() {
+    return this.#role;
+  }
+
+  set role(newRole) {
+    this.#role = newRole;
+  }
+}
+
+const mango = new User({
+  email: 'mango@mail.com',
+  role: User.Roles.ADMIN,
+});
+
+console.log(mango.Roles); // undefined
+console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
+
+console.log(mango.role); // "admin"
+mango.role = User.Roles.EDITOR;
+console.log(mango.role); // "editor"
+
+// Статичні властивості також можуть бути приватними, тобто доступними тільки всередині класу. Для цього ім'я властивості повинно починатися з символу #, так само, як приватні властивості. Звернення до приватної статичної властивості за межами тіла класу викличе помилку.
+
+console.log(`========================= 16/20 ============================`);
+
+// Виконай рефакторинг класу Car. Додай публічну статичну властивість MAX_PRICE зі значенням 50000 - максимально допустима ціна автомобіля.
+
+// Додай сетеру price перевірку значення параметра newPrice, що передається. Якщо воно більше за MAX_PRICE, сеттер нічого не робить, а якщо менше або дорівнює, то перезаписує ціну автомобіля.
+
+class Car {
+  // Change code below this line
+  static MAX_PRICE = 50000;
+
+  #price;
+
+  constructor({ price }) {
+    this.#price = price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    if (newPrice > Car.MAX_PRICE) {
+      return;
+    }
+
+    return (this.#price = newPrice);
+  }
+  // Change code above this line
+}
+
+const audi = new Car({ price: 35000 });
+console.log(audi.price); // 35000
+
+audi.price = 49000;
+console.log(audi.price); // 49000
+
+audi.price = 51000;
+console.log(audi.price); // 49000
+
+//  Оголошений клас Car
+
+//  Клас Car містить статичну властивість MAX_PRICE
+
+//  Значення статичної властивості MAX_PRICE - це число 50000
+
+//  Екземпляр не містить властивості MAX_PRICE
+
+//  В класі Car оголошений гетер price
+
+//  В класі Car оголошений сетер price
+
+//  Виклик сетера price в екземпляра класу, зі значенням аргументу меншим за значення MAX_PRICE, змінює властивість #price
+
+//  Виклик сетера price в екземпляра класу, зі значенням аргументу більшим за значення MAX_PRICE, не змінює властивість #price
+
+console.log(`========================= 16/20 ============================`);
