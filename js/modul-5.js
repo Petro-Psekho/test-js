@@ -1124,9 +1124,98 @@ console.log(`------------ спеціальна функція super(аргуме
 
 console.log(`========================= 19/20 ============================`);
 
-// Додай класу Admin метод constructor, який приймає один параметр - об'єкт налаштувань з двома властивостями email і accessLevel. Додай класу Admin публічну властивість accessLevel, значення якої буде передаватися під час виклику конструктора.
+// // Додай класу Admin метод constructor, який приймає один параметр - об'єкт налаштувань з двома властивостями email і accessLevel. Додай класу Admin публічну властивість accessLevel, значення якої буде передаватися під час виклику конструктора.
 
-// Щоб показати, як буде використовуватися клас Admin, ми додали ініціалізацію екземпляра під оголошенням класу.
+// // Щоб показати, як буде використовуватися клас Admin, ми додали ініціалізацію екземпляра під оголошенням класу.
+
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   // Change code below this line
+
+//   static AccessLevel = {
+//     BASIC: 'basic',
+//     SUPERUSER: 'superuser',
+//   };
+
+//   constructor({ email, accessLevel }) {
+//     super(email);
+//     this.accessLevel = accessLevel;
+//   }
+
+//   // Change code above this line
+// }
+
+// const mango = new Admin({
+//   email: 'mango@mail.com',
+//   accessLevel: Admin.AccessLevel.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.accessLevel); // "superuser"
+
+// // Оголошений клас Admin
+
+// // Клас Admin наслідує від класу User
+
+// // Клас Admin містить публічну статичну властивість AccessLevel
+
+// // Клас Admin містить метод constructor з параметром у вигляді об'єкта {email, accessLevel}
+
+// // В класі Admin в конструкторі для властивості email використовується звернення до конструктора батьківського класу
+
+// console.log(Admin.AccessLevel.BASIC); // повертає рядок "basic"
+
+// console.log(Admin.AccessLevel.SUPERUSER); // повертає рядок "superuser"
+
+console.log(`------------------ методи дочірнього класу -----------------`);
+
+// В дочірньому класі можна оголошувати методи, які будуть доступні тільки його екземплярам.
+
+// Уявімо, що вище є оголошення класу User
+
+//*  class ContentEditor extends User {
+//*    constructor({ email, posts }) {
+//*      super(email);
+//*      this.posts = posts;
+//*    }
+
+//*    addPost(post) {
+//*      this.posts.push(post);
+//*    }
+//*  }
+
+//*  const editor = new ContentEditor({ email: 'mango@mail.com', posts: [] });
+//*  console.log(editor); // { email: 'mango@mail.com', posts: [] }
+//*  console.log(editor.email); // 'mango@mail.com'
+//*  editor.addPost('post-1');
+//*  console.log(editor.posts); // ['post-1']
+
+console.log(`========================= 20/20 ============================`);
+
+// Додай класу Admin наступні властивості і методи.
+
+//Публічну властивість blacklistedEmails для зберігання чорного списку поштових адрес користувачів. Значення за замовчуванням — це порожній масив.
+
+//Публічний метод blacklist(email) для додавання пошти у чорний список. Метод повинен додавати значення параметра email в масив, що зберігається у властивості blacklistedEmails.
+
+// Публічний метод isBlacklisted(email) для перевірки пошти у чорному списку. Метод повинен перевіряти наявність значення параметра email в масиві, що зберігається у властивості blacklistedEmails, і повертати true або false.
+
+// Після оголошення класу ми додали ініціалізацію екземпляра і виклики методів у тій послідовності, в якій твій код перевірятимуть тести. Будь ласка, нічого там не змінюй.
 
 class User {
   email;
@@ -1143,7 +1232,6 @@ class User {
     this.email = newEmail;
   }
 }
-
 class Admin extends User {
   // Change code below this line
 
@@ -1152,9 +1240,18 @@ class Admin extends User {
     SUPERUSER: 'superuser',
   };
 
-  constructor({ email, accessLevel }) {
+  constructor({ email, accessLevel, blacklistedEmails }) {
     super(email);
     this.accessLevel = accessLevel;
+    this.blacklistedEmails = [blacklistedEmails];
+  }
+
+  blacklist(email) {
+    return this.blacklistedEmails.push(email);
+  }
+
+  isBlacklisted(email) {
+    return this.blacklistedEmails.includes(email);
   }
 
   // Change code above this line
@@ -1168,18 +1265,23 @@ const mango = new Admin({
 console.log(mango.email); // "mango@mail.com"
 console.log(mango.accessLevel); // "superuser"
 
+mango.blacklist('poly@mail.com');
+console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+console.log(mango.isBlacklisted('mango@mail.com')); // false
+console.log(mango.isBlacklisted('poly@mail.com')); // true
+
 // Оголошений клас Admin
 
 // Клас Admin наслідує від класу User
 
-// Клас Admin містить публічну статичну властивість AccessLevel
+// Клас Admin містить публічну властивість blacklistedEmails
 
-// Клас Admin містить метод constructor з параметром у вигляді об'єкта {email, accessLevel}
+// Клас Admin містить публічний метод blacklist
 
-// В класі Admin в конструкторі для властивості email використовується звернення до конструктора батьківського класу
+// Клас Admin містить публічний метод isBlacklisted
 
-console.log(Admin.AccessLevel.BASIC); // повертає рядок "basic"
+console.log(mango.blacklist('poly@mail.com')); // значення властивості blacklistedEmails - це масив ["poly@mail.com"]
 
-console.log(Admin.AccessLevel.SUPERUSER); // повертає рядок "superuser"
+console.log(mango.isBlacklisted('mango@mail.com')); // повертає false
 
-console.log(`========================= 19/20 ============================`);
+console.log(mango.isBlacklisted('poly@mail.com')); // повертає true
