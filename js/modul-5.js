@@ -777,21 +777,42 @@ class Car {
     this.#brand = newBrand;
   }
 
-  getModel() {
+  // getModel() {
+  //   return this.model;
+  // }
+
+  // updateModel(newModel) {
+  //   this.model = newModel;
+  // }
+
+  // Геттер model
+  get model() {
     return this.#model;
   }
 
-  updateModel(newModel) {
+  // Сеттер model
+  set model(newModel) {
     this.#model = newModel;
   }
 
-  getPrice() {
+  // getPrice() {
+  //   return this.#price;
+  // }
+
+  // setPrice(newPrice) {
+  //   this.#price = newPrice;
+  // }
+
+  // Геттер price
+  get price() {
     return this.#price;
   }
 
-  setPrice(newPrice) {
+  // Сеттер price
+  set price(newPrice) {
     this.#price = newPrice;
   }
+
   // Change code above this line
 }
 
