@@ -852,41 +852,41 @@ console.log(`----------- статичні властивості класу (sta
 
 // Статичні властивості оголошуються в тілі класу. Перед ім'ям властивості додається ключове слово static.
 
-class User {
-  // Оголошення та ініціалізація статичної властивості
-  static Roles = {
-    ADMIN: 'admin',
-    EDITOR: 'editor',
-  };
+// class User {
+//   // Оголошення та ініціалізація статичної властивості
+//   static Roles = {
+//     ADMIN: 'admin',
+//     EDITOR: 'editor',
+//   };
 
-  #email;
-  #role;
+//   #email;
+//   #role;
 
-  constructor({ email, role }) {
-    this.#email = email;
-    this.#role = role;
-  }
+//   constructor({ email, role }) {
+//     this.#email = email;
+//     this.#role = role;
+//   }
 
-  get role() {
-    return this.#role;
-  }
+//   get role() {
+//     return this.#role;
+//   }
 
-  set role(newRole) {
-    this.#role = newRole;
-  }
-}
+//   set role(newRole) {
+//     this.#role = newRole;
+//   }
+// }
 
-const mango = new User({
-  email: 'mango@mail.com',
-  role: User.Roles.ADMIN,
-});
+// const mango = new User({
+//   email: 'mango@mail.com',
+//   role: User.Roles.ADMIN,
+// });
 
-console.log(mango.Roles); // undefined
-console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
+// console.log(mango.Roles); // undefined
+// console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
 
-console.log(mango.role); // "admin"
-mango.role = User.Roles.EDITOR;
-console.log(mango.role); // "editor"
+// console.log(mango.role); // "admin"
+// mango.role = User.Roles.EDITOR;
+// console.log(mango.role); // "editor"
 
 // Статичні властивості також можуть бути приватними, тобто доступними тільки всередині класу. Для цього ім'я властивості повинно починатися з символу #, так само, як приватні властивості. Звернення до приватної статичної властивості за межами тіла класу викличе помилку.
 
@@ -896,38 +896,38 @@ console.log(`========================= 16/20 ============================`);
 
 // Додай сетеру price перевірку значення параметра newPrice, що передається. Якщо воно більше за MAX_PRICE, сеттер нічого не робить, а якщо менше або дорівнює, то перезаписує ціну автомобіля.
 
-class Car {
-  // Change code below this line
-  static MAX_PRICE = 50000;
+// class Car {
+//   // Change code below this line
+//   static MAX_PRICE = 50000;
 
-  #price;
+//   #price;
 
-  constructor({ price }) {
-    this.#price = price;
-  }
+//   constructor({ price }) {
+//     this.#price = price;
+//   }
 
-  get price() {
-    return this.#price;
-  }
+//   get price() {
+//     return this.#price;
+//   }
 
-  set price(newPrice) {
-    if (newPrice > Car.MAX_PRICE) {
-      return;
-    }
+//   set price(newPrice) {
+//     if (newPrice > Car.MAX_PRICE) {
+//       return;
+//     }
 
-    return (this.#price = newPrice);
-  }
-  // Change code above this line
-}
+//     return (this.#price = newPrice);
+//   }
+//   // Change code above this line
+// }
 
-const audi = new Car({ price: 35000 });
-console.log(audi.price); // 35000
+// const audi = new Car({ price: 35000 });
+// console.log(audi.price); // 35000
 
-audi.price = 49000;
-console.log(audi.price); // 49000
+// audi.price = 49000;
+// console.log(audi.price); // 49000
 
-audi.price = 51000;
-console.log(audi.price); // 49000
+// audi.price = 51000;
+// console.log(audi.price); // 49000
 
 //  Оголошений клас Car
 
@@ -945,4 +945,70 @@ console.log(audi.price); // 49000
 
 //  Виклик сетера price в екземпляра класу, зі значенням аргументу більшим за значення MAX_PRICE, не змінює властивість #price
 
-console.log(`========================= 16/20 ============================`);
+console.log(`-------------- статичні методи класу (static) --------------`);
+
+// В класі можна оголосити не тільки методи майбутнього екземпляра, а також методи, доступні тільки класу - статичні методи, які можуть бути як публічні, так і приватні. Синтаксис оголошення аналогічний статичним властивостям, за винятком того, що значенням буде метод.
+
+class User {
+  static #takenEmails = [];
+
+  static isEmailTaken(email) {
+    return User.#takenEmails.includes(email);
+  }
+
+  #email;
+
+  constructor({ email }) {
+    this.#email = email;
+    User.#takenEmails.push(email);
+  }
+}
+
+const mango = new User({ email: 'mango@mail.com' });
+
+console.log(User.isEmailTaken('poly@mail.com'));
+console.log(User.isEmailTaken('mango@mail.com'));
+
+// Особливість статичних методів полягає у тому, що під час їх виклику ключове слово this посилається на сам клас. Це означає, що статичний метод може отримати доступ до статичних властивостей класу, але не до властивостей екземпляра. Логічно, тому що статичні методи викликає сам клас, а не його екземпляри.
+
+console.log(`========================= 17/20 ============================`);
+
+// Додай класу Car публічний статичний метод checkPrice (price), що приймає ціну автомобіля. Метод повинен порівняти значення параметра price і приватної статичного властивості MAX_PRICE.
+
+// Якщо ціна автомобіля перевищує максимальну, метод повинен повернути рядок "Error! Price exceeds the maximum".
+// В іншому випадку метод повинен повернути рядок "Success! Price is within acceptable limits".
+// Під оголошенням класу ми додали ініціалізацію екземпляра і виклики методів, щоб показати, як буде використовуватися метод checkPrice(price).
+
+class Car {
+  static #MAX_PRICE = 50000;
+  // Change code below this line
+
+  static checkPrice(price) {
+    if (price > Car.#MAX_PRICE) {
+      return 'Error! Price exceeds the maximum';
+    }
+    return 'Success! Price is within acceptable limits';
+  }
+
+  // Change code above this line
+  constructor({ price }) {
+    this.price = price;
+  }
+}
+
+const audi = new Car({ price: 36000 });
+const bmw = new Car({ price: 64000 });
+
+console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+
+// Оголошений клас Car
+// Клас Car містить статичний метод checkPrice(price)
+console.log(Car.checkPrice(36000)); // повертає рядок "Success! Price is within acceptable limits"
+console.log(Car.checkPrice(18000)); // повертає рядок "Success! Price is within acceptable limits"
+console.log(Car.checkPrice(64000)); // повертає рядок "Error! Price exceeds the maximum"
+console.log(Car.checkPrice(57000)); // повертає рядок "Error! Price exceeds the maximum"
+
+console.log(`-------------- статичні методи класу (static) --------------`);
+
+console.log(`========================= 18/20 ============================`);
